@@ -1,0 +1,213 @@
+<!--
+  Screen: S-10 Camera Shooting
+  CJX Stage: Usage
+  FR Mapping: FR-03, FR-04
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>S-10 Camera</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="components.css">
+  <style>
+    .camera-viewfinder {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 50%, #1a1a1a 100%);
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+    }
+    .camera-top-bar {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: var(--space-lg);
+      z-index: 10;
+      background: linear-gradient(180deg, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0) 100%);
+    }
+    .camera-top-bar button {
+      background: none;
+      border: none;
+      color: white;
+      width: 40px;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+    }
+    .camera-top-bar .page-counter {
+      background: rgba(255,255,255,0.2);
+      backdrop-filter: blur(10px);
+      padding: 4px 12px;
+      border-radius: var(--radius-full);
+      font: var(--text-body2);
+      color: white;
+      font-weight: 500;
+    }
+    .camera-viewfinder-area {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+    .edge-detection-overlay {
+      position: absolute;
+      width: 80%;
+      height: 60%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .edge-detection-overlay svg {
+      width: 100%;
+      height: 100%;
+    }
+    .camera-guidance {
+      position: absolute;
+      bottom: 120px;
+      left: 0;
+      right: 0;
+      text-align: center;
+      color: white;
+      font: var(--text-body1);
+      padding: var(--space-sm) var(--space-lg);
+      background: rgba(0,0,0,0.5);
+      backdrop-filter: blur(10px);
+      animation: fadeOut 3s forwards;
+    }
+    @keyframes fadeOut {
+      0%, 70% { opacity: 1; }
+      100% { opacity: 0; pointer-events: none; }
+    }
+    .camera-controls {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: var(--space-xl) var(--space-lg);
+      background: linear-gradient(0deg, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0) 100%);
+    }
+    .camera-controls .thumbnail {
+      width: 48px;
+      height: 48px;
+      border-radius: var(--radius-sm);
+      background: linear-gradient(135deg, #42A5F5, #1976D2);
+      border: 2px solid white;
+    }
+    .camera-controls .capture-btn {
+      width: 76px;
+      height: 76px;
+      border-radius: 50%;
+      border: 4px solid white;
+      background: rgba(255,255,255,0.2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: transform 0.2s;
+    }
+    .camera-controls .capture-btn:active {
+      transform: scale(0.9);
+    }
+    .camera-controls .capture-btn-inner {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      background: white;
+    }
+    .camera-controls .flip-btn {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.2);
+      backdrop-filter: blur(10px);
+      border: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body class="cjx-usage">
+  <div class="app-layout">
+    <nav class="sidebar hide-mobile"></nav>
+    <main class="main-content" data-cjx-entrance>
+
+      <div class="camera-viewfinder">
+        <!-- Top bar -->
+        <div class="camera-top-bar">
+          <button aria-label="Close camera">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="18" y1="6" x2="6" y2="18"/>
+              <line x1="6" y1="6" x2="18" y2="18"/>
+            </svg>
+          </button>
+          <div class="page-counter">1/3</div>
+          <button aria-label="Toggle flash">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polygon points="13,2 3,14 12,14 11,22 21,10 12,10"/>
+            </svg>
+          </button>
+        </div>
+
+        <!-- Viewfinder area -->
+        <div class="camera-viewfinder-area">
+          <!-- Edge detection overlay -->
+          <div class="edge-detection-overlay">
+            <svg viewBox="0 0 300 400" fill="none">
+              <rect x="20" y="60" width="260" height="280"
+                    stroke="#42A5F5"
+                    stroke-width="3"
+                    stroke-dasharray="10,5"
+                    rx="4"
+                    fill="rgba(66,165,245,0.05)"/>
+              <!-- Corner markers -->
+              <circle cx="20" cy="60" r="6" fill="#42A5F5"/>
+              <circle cx="280" cy="60" r="6" fill="#42A5F5"/>
+              <circle cx="20" cy="340" r="6" fill="#42A5F5"/>
+              <circle cx="280" cy="340" r="6" fill="#42A5F5"/>
+            </svg>
+          </div>
+
+          <!-- Guidance text -->
+          <div class="camera-guidance">
+            Align document within the frame
+          </div>
+        </div>
+
+        <!-- Bottom controls -->
+        <div class="camera-controls">
+          <div class="thumbnail"></div>
+          <button class="capture-btn" aria-label="Capture photo">
+            <div class="capture-btn-inner"></div>
+          </button>
+          <button class="flip-btn" aria-label="Flip camera">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M23 4v6h-6"/>
+              <path d="M1 20v-6h6"/>
+              <path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/>
+            </svg>
+          </button>
+        </div>
+      </div>
+
+    </main>
+  </div>
+  <script src="interactions.js"></script>
+</body>
+</html>

@@ -1,0 +1,166 @@
+<!--
+  Screen: S-07 Search Template
+  CJX Stage: Discovery (800ms animations)
+  FR Mapping: FR-07, FR-11
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>S-07 Search</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="components.css">
+</head>
+<body class="cjx-discovery">
+  <div class="app-layout">
+    <nav class="sidebar hide-mobile"></nav>
+    <main class="main-content" data-cjx-entrance>
+
+      <!-- Header: SearchBar auto-focused, full-width input -->
+      <header style="padding:var(--space-md) var(--space-lg);display:flex;align-items:center;gap:var(--space-sm);flex-shrink:0;background:var(--color-background);" data-cjx-entrance>
+        <div class="search-input-wrap" style="flex:1;">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          <input type="text" placeholder="Search articles, topics..." autofocus>
+        </div>
+        <a href="s05-feed.html" style="font:var(--text-body2);color:var(--color-primary);text-decoration:none;font-weight:500;white-space:nowrap;">Cancel</a>
+      </header>
+
+      <div class="scroll-content">
+
+        <!-- Recent searches: list with clock icon, "Clear all" action -->
+        <section class="section" data-cjx-entrance>
+          <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:var(--space-md);">
+            <p class="section-subtitle" style="margin-bottom:0;">Recent Searches</p>
+            <button class="btn btn-ghost btn-sm" style="font-size:12px;color:var(--color-primary);height:auto;padding:2px 4px;">Clear All</button>
+          </div>
+
+          <div style="display:flex;flex-direction:column;gap:var(--space-sm);">
+            <div class="recent-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12,6 12,12 16,14"/></svg>
+              <span>design tokens tamagui</span>
+            </div>
+            <div class="recent-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12,6 12,12 16,14"/></svg>
+              <span>platform adaptive components</span>
+            </div>
+            <div class="recent-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12,6 12,12 16,14"/></svg>
+              <span>monorepo setup guide</span>
+            </div>
+            <div class="recent-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12,6 12,12 16,14"/></svg>
+              <span>react native typography</span>
+            </div>
+          </div>
+        </section>
+
+        <div class="separator" style="margin:0 var(--space-lg);"></div>
+
+        <!-- Trending topics: horizontal chip scroll -->
+        <section class="section" data-cjx-entrance>
+          <p class="section-subtitle">Trending Topics</p>
+          <div class="filter-chips" style="padding-left:0;padding-right:0;flex-wrap:wrap;">
+            <button class="filter-chip">Tamagui v2</button>
+            <button class="filter-chip">Dark Mode</button>
+            <button class="filter-chip">Expo SDK 52</button>
+            <button class="filter-chip">Turborepo</button>
+            <button class="filter-chip">Typography</button>
+            <button class="filter-chip">Accessibility</button>
+            <button class="filter-chip">Animation</button>
+            <button class="filter-chip">Theming</button>
+          </div>
+        </section>
+
+        <div class="separator" style="margin:0 var(--space-lg);"></div>
+
+        <!-- Search results: ArticleCard list (appears on query) -->
+        <section class="section" data-cjx-entrance>
+          <p class="section-subtitle">Suggested</p>
+
+          <div style="display:flex;flex-direction:column;gap:var(--space-md);">
+            <a href="s06-detail.html" class="article-card-horizontal" style="text-decoration:none;">
+              <div class="thumb" style="background:linear-gradient(135deg,#E3F2FD,#BBDEFB);"></div>
+              <div class="info">
+                <div class="article-card-title" style="font:var(--text-body2);font-weight:600;margin-bottom:2px;">Getting Started with Design Tokens</div>
+                <div class="article-card-meta">
+                  <span>Sarah Chen</span>
+                  <span class="dot"></span>
+                  <span>3 min</span>
+                </div>
+              </div>
+            </a>
+
+            <a href="s06-detail.html" class="article-card-horizontal" style="text-decoration:none;">
+              <div class="thumb" style="background:linear-gradient(135deg,#E8F5E9,#C8E6C9);"></div>
+              <div class="info">
+                <div class="article-card-title" style="font:var(--text-body2);font-weight:600;margin-bottom:2px;">Theme System Deep Dive</div>
+                <div class="article-card-meta">
+                  <span>Marcus Lee</span>
+                  <span class="dot"></span>
+                  <span>6 min</span>
+                </div>
+              </div>
+            </a>
+
+            <a href="s06-detail.html" class="article-card-horizontal" style="text-decoration:none;">
+              <div class="thumb" style="background:linear-gradient(135deg,#FFF3E0,#FFE0B2);"></div>
+              <div class="info">
+                <div class="article-card-title" style="font:var(--text-body2);font-weight:600;margin-bottom:2px;">Building Compound Components</div>
+                <div class="article-card-meta">
+                  <span>Ava Patel</span>
+                  <span class="dot"></span>
+                  <span>7 min</span>
+                </div>
+              </div>
+            </a>
+
+            <a href="s06-detail.html" class="article-card-horizontal" style="text-decoration:none;">
+              <div class="thumb" style="background:linear-gradient(135deg,#F3E5F5,#E1BEE7);"></div>
+              <div class="info">
+                <div class="article-card-title" style="font:var(--text-body2);font-weight:600;margin-bottom:2px;">Accessibility in React Native</div>
+                <div class="article-card-meta">
+                  <span>Jordan Wu</span>
+                  <span class="dot"></span>
+                  <span>4 min</span>
+                </div>
+              </div>
+            </a>
+          </div>
+        </section>
+
+        <!-- Empty state (hidden, shown when no results) -->
+        <!--
+        <div class="empty-state">
+          <div class="empty-state-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="8" y1="11" x2="14" y2="11"/></svg>
+          </div>
+          <div class="empty-state-title">No Results</div>
+          <div class="empty-state-text">Try searching with different keywords or check your spelling.</div>
+        </div>
+        -->
+
+        <div style="height:calc(var(--tab-bar-height) + var(--space-lg));"></div>
+      </div>
+
+      <!-- Tab Bar -->
+      <nav class="tab-bar">
+        <a href="s05-feed.html" class="tab-bar-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9,22 9,12 15,12 15,22"/></svg>
+          <span>Home</span>
+        </a>
+        <a href="s07-search.html" class="tab-bar-item active">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          <span>Search</span>
+        </a>
+        <a href="s08-profile.html" class="tab-bar-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+          <span>Profile</span>
+        </a>
+      </nav>
+
+    </main>
+  </div>
+  <script src="interactions.js"></script>
+</body>
+</html>

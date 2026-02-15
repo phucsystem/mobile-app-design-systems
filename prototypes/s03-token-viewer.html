@@ -1,0 +1,236 @@
+<!--
+  Screen: S-03 Token Viewer
+  CJX Stage: Usage
+  FR Mapping: FR-01, FR-02
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>S-03 Token Viewer</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="components.css">
+</head>
+<body class="cjx-usage">
+  <div class="app-layout">
+    <nav class="sidebar hide-mobile"></nav>
+    <main class="main-content" data-cjx-entrance>
+
+      <!-- Header -->
+      <header class="screen-header" style="position:sticky;top:0;z-index:10;background:var(--color-background);">
+        <a href="s01-showcase-home.html" class="back-btn" aria-label="Back">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15,18 9,12 15,6"/></svg>
+        </a>
+        <span class="screen-header-center">Tokens</span>
+        <div style="width:44px;"></div>
+      </header>
+
+      <!-- Tab Segments: Colors | Typography | Spacing | Radius | Shadows -->
+      <div style="padding:0 var(--space-lg) var(--space-sm);" data-cjx-entrance>
+        <div class="tab-segments">
+          <button class="tab-segment active" data-tab-target="tab-colors">Colors</button>
+          <button class="tab-segment" data-tab-target="tab-typography">Type</button>
+          <button class="tab-segment" data-tab-target="tab-spacing">Space</button>
+          <button class="tab-segment" data-tab-target="tab-radius">Radius</button>
+          <button class="tab-segment" data-tab-target="tab-shadows">Shadow</button>
+        </div>
+      </div>
+
+      <div class="scroll-content">
+
+        <!-- Colors Tab -->
+        <div class="tab-panel" id="tab-colors" data-cjx-entrance>
+          <section class="section">
+            <p class="section-subtitle">Semantic</p>
+            <div class="swatch-grid">
+              <div class="swatch">
+                <div class="swatch-color" style="background:#1976D2;"></div>
+                <span class="swatch-name">$primary<br>#1976D2</span>
+              </div>
+              <div class="swatch">
+                <div class="swatch-color" style="background:#42A5F5;"></div>
+                <span class="swatch-name">$primaryLight<br>#42A5F5</span>
+              </div>
+              <div class="swatch">
+                <div class="swatch-color" style="background:#1565C0;"></div>
+                <span class="swatch-name">$primaryDark<br>#1565C0</span>
+              </div>
+              <div class="swatch">
+                <div class="swatch-color" style="background:#E3F2FD;"></div>
+                <span class="swatch-name">$primaryBg<br>#E3F2FD</span>
+              </div>
+              <div class="swatch">
+                <div class="swatch-color" style="background:#388E3C;"></div>
+                <span class="swatch-name">$success<br>#388E3C</span>
+              </div>
+              <div class="swatch">
+                <div class="swatch-color" style="background:#F9A825;"></div>
+                <span class="swatch-name">$warning<br>#F9A825</span>
+              </div>
+              <div class="swatch">
+                <div class="swatch-color" style="background:#D32F2F;"></div>
+                <span class="swatch-name">$error<br>#D32F2F</span>
+              </div>
+              <div class="swatch">
+                <div class="swatch-color" style="background:#0288D1;"></div>
+                <span class="swatch-name">$info<br>#0288D1</span>
+              </div>
+            </div>
+          </section>
+          <section class="section">
+            <p class="section-subtitle">Gray Scale</p>
+            <div class="swatch-grid">
+              <div class="swatch">
+                <div class="swatch-color" style="background:#FAFAFA;border:1px solid #E0E0E0;"></div>
+                <span class="swatch-name">$gray1<br>#FAFAFA</span>
+              </div>
+              <div class="swatch">
+                <div class="swatch-color" style="background:#F5F5F5;border:1px solid #E0E0E0;"></div>
+                <span class="swatch-name">$gray2<br>#F5F5F5</span>
+              </div>
+              <div class="swatch">
+                <div class="swatch-color" style="background:#EEEEEE;"></div>
+                <span class="swatch-name">$gray3<br>#EEEEEE</span>
+              </div>
+              <div class="swatch">
+                <div class="swatch-color" style="background:#E0E0E0;"></div>
+                <span class="swatch-name">$gray4<br>#E0E0E0</span>
+              </div>
+              <div class="swatch">
+                <div class="swatch-color" style="background:#BDBDBD;"></div>
+                <span class="swatch-name">$gray5<br>#BDBDBD</span>
+              </div>
+              <div class="swatch">
+                <div class="swatch-color" style="background:#9E9E9E;"></div>
+                <span class="swatch-name">$gray6<br>#9E9E9E</span>
+              </div>
+              <div class="swatch">
+                <div class="swatch-color" style="background:#757575;"></div>
+                <span class="swatch-name">$gray7<br>#757575</span>
+              </div>
+              <div class="swatch">
+                <div class="swatch-color" style="background:#616161;"></div>
+                <span class="swatch-name">$gray8<br>#616161</span>
+              </div>
+              <div class="swatch">
+                <div class="swatch-color" style="background:#424242;"></div>
+                <span class="swatch-name">$gray9<br>#424242</span>
+              </div>
+              <div class="swatch">
+                <div class="swatch-color" style="background:#212121;"></div>
+                <span class="swatch-name">$gray10<br>#212121</span>
+              </div>
+            </div>
+          </section>
+        </div>
+
+        <!-- Typography Tab -->
+        <div class="tab-panel" id="tab-typography" style="display:none;" data-cjx-entrance>
+          <section class="section">
+            <div style="display:flex;flex-direction:column;gap:var(--space-lg);">
+              <div>
+                <p class="section-subtitle">$h1 &middot; 28px / Bold</p>
+                <p style="font:var(--text-h1);">The quick brown fox</p>
+              </div>
+              <div>
+                <p class="section-subtitle">$h2 &middot; 24px / SemiBold</p>
+                <p style="font:var(--text-h2);">The quick brown fox</p>
+              </div>
+              <div>
+                <p class="section-subtitle">$h3 &middot; 20px / SemiBold</p>
+                <p style="font:var(--text-h3);">The quick brown fox</p>
+              </div>
+              <div>
+                <p class="section-subtitle">$h4 &middot; 18px / Medium</p>
+                <p style="font:var(--text-h4);">The quick brown fox</p>
+              </div>
+              <div>
+                <p class="section-subtitle">$body1 &middot; 16px / Regular</p>
+                <p style="font:var(--text-body1);">The quick brown fox jumps over the lazy dog. This is body text at the default reading size with comfortable line height.</p>
+              </div>
+              <div>
+                <p class="section-subtitle">$body2 &middot; 14px / Regular</p>
+                <p style="font:var(--text-body2);">The quick brown fox jumps over the lazy dog. Secondary body text for less prominent content.</p>
+              </div>
+              <div>
+                <p class="section-subtitle">$caption &middot; 12px / Regular</p>
+                <p style="font:var(--text-caption);">Caption text for metadata, timestamps, and small labels</p>
+              </div>
+              <div>
+                <p class="section-subtitle">$button &middot; 16px / Medium</p>
+                <p style="font:var(--text-button);">Button Label Text</p>
+              </div>
+              <div>
+                <p class="section-subtitle">$overline &middot; 11px / SemiBold</p>
+                <p style="font:var(--text-overline);text-transform:uppercase;letter-spacing:1px;">OVERLINE LABEL</p>
+              </div>
+            </div>
+          </section>
+        </div>
+
+        <!-- Spacing Tab -->
+        <div class="tab-panel" id="tab-spacing" style="display:none;" data-cjx-entrance>
+          <section class="section">
+            <div style="display:flex;flex-direction:column;gap:var(--space-md);">
+              <div class="spacing-bar">
+                <span class="spacing-bar-label">$xs &middot; 4px</span>
+                <div class="spacing-bar-visual" style="width:4px;"></div>
+              </div>
+              <div class="spacing-bar">
+                <span class="spacing-bar-label">$sm &middot; 8px</span>
+                <div class="spacing-bar-visual" style="width:16px;"></div>
+              </div>
+              <div class="spacing-bar">
+                <span class="spacing-bar-label">$md &middot; 16px</span>
+                <div class="spacing-bar-visual" style="width:48px;"></div>
+              </div>
+              <div class="spacing-bar">
+                <span class="spacing-bar-label">$lg &middot; 24px</span>
+                <div class="spacing-bar-visual" style="width:96px;"></div>
+              </div>
+              <div class="spacing-bar">
+                <span class="spacing-bar-label">$xl &middot; 32px</span>
+                <div class="spacing-bar-visual" style="width:144px;"></div>
+              </div>
+              <div class="spacing-bar">
+                <span class="spacing-bar-label">$2xl &middot; 48px</span>
+                <div class="spacing-bar-visual" style="width:216px;"></div>
+              </div>
+            </div>
+          </section>
+        </div>
+
+        <!-- Radius Tab -->
+        <div class="tab-panel" id="tab-radius" style="display:none;" data-cjx-entrance>
+          <section class="section">
+            <div class="radius-grid">
+              <div class="radius-box" style="border-radius:4px;">$xs<br>4px</div>
+              <div class="radius-box" style="border-radius:8px;">$sm<br>8px</div>
+              <div class="radius-box" style="border-radius:12px;">$md<br>12px</div>
+              <div class="radius-box" style="border-radius:16px;">$lg<br>16px</div>
+              <div class="radius-box" style="border-radius:24px;">$xl<br>24px</div>
+              <div class="radius-box" style="border-radius:9999px;">$full<br>pill</div>
+            </div>
+          </section>
+        </div>
+
+        <!-- Shadows Tab -->
+        <div class="tab-panel" id="tab-shadows" style="display:none;" data-cjx-entrance>
+          <section class="section">
+            <div class="shadow-grid">
+              <div class="shadow-box" style="box-shadow:0 1px 3px rgba(0,0,0,0.12);">$sm<br>Cards default</div>
+              <div class="shadow-box" style="box-shadow:0 4px 12px rgba(0,0,0,0.12);">$md<br>Elevated cards</div>
+              <div class="shadow-box" style="box-shadow:0 8px 24px rgba(0,0,0,0.12);">$lg<br>Modals, sheets</div>
+              <div class="shadow-box" style="box-shadow:0 16px 48px rgba(0,0,0,0.12);">$xl<br>Popovers</div>
+            </div>
+          </section>
+        </div>
+
+        <div style="height:var(--space-xl);"></div>
+      </div>
+    </main>
+  </div>
+  <script src="interactions.js"></script>
+</body>
+</html>

@@ -1,0 +1,257 @@
+<!--
+  Screen: S-14 Image Gallery
+  CJX Stage: Retention
+  FR Mapping: FR-03, FR-05, FR-07
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>S-14 Image Gallery (v1.a)</title>
+  <link rel="stylesheet" href="../styles.css">
+  <link rel="stylesheet" href="../components.css">
+  <link rel="stylesheet" href="styles-v1a.css">
+  <style>
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2px;
+      padding: 0 2px;
+    }
+    .gallery-item {
+      aspect-ratio: 1;
+      position: relative;
+      cursor: pointer;
+      overflow: hidden;
+      border-radius: 4px;
+    }
+    .gallery-item-gradient {
+      width: 100%;
+      height: 100%;
+      transition: transform 0.2s;
+    }
+    .gallery-item:active .gallery-item-gradient {
+      transform: scale(0.95);
+    }
+    .gallery-item-overlay {
+      position: absolute;
+      top: 6px;
+      right: 6px;
+      width: 24px;
+      height: 24px;
+      background: rgba(0,0,0,0.5);
+      backdrop-filter: blur(8px);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .gallery-item-overlay svg {
+      width: 14px;
+      height: 14px;
+      stroke: white;
+      fill: white;
+    }
+    .date-header {
+      font: var(--text-overline);
+      color: var(--color-text-soft);
+      padding: var(--space-md) var(--space-lg) var(--space-sm);
+      letter-spacing: 1px;
+    }
+  </style>
+</head>
+<body class="cjx-retention">
+  <div class="app-layout">
+    <nav class="sidebar hide-mobile"></nav>
+    <main class="main-content" data-cjx-entrance>
+
+      <!-- Header -->
+      <header class="screen-header">
+        <button class="back-btn" aria-label="Go back">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="15,18 9,12 15,6"/>
+          </svg>
+        </button>
+        <h1 class="screen-header-title">Gallery</h1>
+        <div class="header-actions">
+          <button class="icon-btn" aria-label="Toggle view">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="3" y="3" width="7" height="7"/>
+              <rect x="14" y="3" width="7" height="7"/>
+              <rect x="14" y="14" width="7" height="7"/>
+              <rect x="3" y="14" width="7" height="7"/>
+            </svg>
+          </button>
+          <button class="icon-btn" aria-label="Select mode">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="9,11 12,14 22,4"/>
+              <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/>
+            </svg>
+          </button>
+        </div>
+      </header>
+
+      <!-- Filter chips -->
+      <div class="filter-chips" style="padding:var(--space-sm) var(--space-lg);" data-cjx-entrance>
+        <button class="filter-chip active">All</button>
+        <button class="filter-chip">Photos</button>
+        <button class="filter-chip">Videos</button>
+        <button class="filter-chip">Screenshots</button>
+        <button class="filter-chip">Favorites</button>
+      </div>
+
+      <div class="scroll-content">
+
+        <!-- Today -->
+        <div class="date-header" data-cjx-entrance>TODAY</div>
+        <div class="gallery-grid" data-cjx-entrance>
+          <div class="gallery-item">
+            <div class="gallery-item-gradient" style="background:linear-gradient(135deg,#F0FDFA,#2DD4BF);"></div>
+          </div>
+          <div class="gallery-item">
+            <div class="gallery-item-gradient" style="background:linear-gradient(135deg,#FEF3C7,#FCD34D);"></div>
+            <div class="gallery-item-overlay">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polygon points="5,3 19,12 5,21"/>
+              </svg>
+            </div>
+          </div>
+          <div class="gallery-item">
+            <div class="gallery-item-gradient" style="background:linear-gradient(135deg,#FFEDD5,#FB923C);"></div>
+          </div>
+          <div class="gallery-item">
+            <div class="gallery-item-gradient" style="background:linear-gradient(135deg,#D1FAE5,#86EFAC);"></div>
+            <div class="gallery-item-overlay">
+              <svg viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+              </svg>
+            </div>
+          </div>
+          <div class="gallery-item">
+            <div class="gallery-item-gradient" style="background:linear-gradient(135deg,#FCE7F3,#F9A8D4);"></div>
+          </div>
+          <div class="gallery-item">
+            <div class="gallery-item-gradient" style="background:linear-gradient(135deg,#E0F2FE,#7DD3FC);"></div>
+          </div>
+        </div>
+
+        <!-- Yesterday -->
+        <div class="date-header" data-cjx-entrance>YESTERDAY</div>
+        <div class="gallery-grid" data-cjx-entrance>
+          <div class="gallery-item">
+            <div class="gallery-item-gradient" style="background:linear-gradient(135deg,#FEE2E2,#FCA5A5);"></div>
+          </div>
+          <div class="gallery-item">
+            <div class="gallery-item-gradient" style="background:linear-gradient(135deg,#DDD6FE,#A78BFA);"></div>
+            <div class="gallery-item-overlay">
+              <svg viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+              </svg>
+            </div>
+          </div>
+          <div class="gallery-item">
+            <div class="gallery-item-gradient" style="background:linear-gradient(135deg,#FEF9C3,#FDE047);"></div>
+          </div>
+          <div class="gallery-item">
+            <div class="gallery-item-gradient" style="background:linear-gradient(135deg,#ECFCCB,#BEF264);"></div>
+            <div class="gallery-item-overlay">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polygon points="5,3 19,12 5,21"/>
+              </svg>
+            </div>
+          </div>
+          <div class="gallery-item">
+            <div class="gallery-item-gradient" style="background:linear-gradient(135deg,#CFFAFE,#67E8F9);"></div>
+          </div>
+          <div class="gallery-item">
+            <div class="gallery-item-gradient" style="background:linear-gradient(135deg,#F3E8FF,#D8B4FE);"></div>
+          </div>
+          <div class="gallery-item">
+            <div class="gallery-item-gradient" style="background:linear-gradient(135deg,#F5F5F4,#D6D3D1);"></div>
+          </div>
+          <div class="gallery-item">
+            <div class="gallery-item-gradient" style="background:linear-gradient(135deg,#FFF7ED,#FDBA74);"></div>
+          </div>
+          <div class="gallery-item">
+            <div class="gallery-item-gradient" style="background:linear-gradient(135deg,#FED7AA,#FB923C);"></div>
+          </div>
+        </div>
+
+        <!-- Feb 13 -->
+        <div class="date-header" data-cjx-entrance>FEB 13</div>
+        <div class="gallery-grid" data-cjx-entrance>
+          <div class="gallery-item">
+            <div class="gallery-item-gradient" style="background:linear-gradient(135deg,#CCFBF1,#5EEAD4);"></div>
+          </div>
+          <div class="gallery-item">
+            <div class="gallery-item-gradient" style="background:linear-gradient(135deg,#E9D5FF,#C084FC);"></div>
+            <div class="gallery-item-overlay">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polygon points="5,3 19,12 5,21"/>
+              </svg>
+            </div>
+          </div>
+          <div class="gallery-item">
+            <div class="gallery-item-gradient" style="background:linear-gradient(135deg,#FEF3C7,#FBBF24);"></div>
+          </div>
+          <div class="gallery-item">
+            <div class="gallery-item-gradient" style="background:linear-gradient(135deg,#FFEDD5,#F97316);"></div>
+          </div>
+          <div class="gallery-item">
+            <div class="gallery-item-gradient" style="background:linear-gradient(135deg,#E7E5E4,#A8A29E);"></div>
+            <div class="gallery-item-overlay">
+              <svg viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+              </svg>
+            </div>
+          </div>
+          <div class="gallery-item">
+            <div class="gallery-item-gradient" style="background:linear-gradient(135deg,#CCFBF1,#14B8A6);"></div>
+          </div>
+        </div>
+
+        <div style="height:calc(var(--tab-bar-height) + var(--space-lg));"></div>
+      </div>
+
+      <!-- FAB -->
+      <button class="fab" aria-label="Take photo">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/>
+          <circle cx="12" cy="13" r="4"/>
+        </svg>
+      </button>
+
+      <!-- Tab Bar -->
+      <nav class="tab-bar">
+        <a href="#" class="tab-bar-item active">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="3" width="7" height="7"/>
+            <rect x="14" y="3" width="7" height="7"/>
+            <rect x="14" y="14" width="7" height="7"/>
+            <rect x="3" y="14" width="7" height="7"/>
+          </svg>
+          <span>Gallery</span>
+        </a>
+        <a href="#" class="tab-bar-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="3" width="7" height="9" rx="1"/>
+            <rect x="14" y="3" width="7" height="5" rx="1"/>
+            <rect x="14" y="12" width="7" height="9" rx="1"/>
+            <rect x="3" y="16" width="7" height="5" rx="1"/>
+          </svg>
+          <span>Albums</span>
+        </a>
+        <a href="#" class="tab-bar-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+          </svg>
+          <span>Favorites</span>
+        </a>
+      </nav>
+
+    </main>
+  </div>
+  <script src="../interactions.js"></script>
+</body>
+</html>

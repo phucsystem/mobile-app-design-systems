@@ -1,0 +1,170 @@
+<!--
+  Screen: S-02 Component Detail
+  CJX Stage: Usage
+  FR Mapping: FR-06
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>S-02 Component Detail</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="components.css">
+</head>
+<body class="cjx-usage">
+  <div class="app-layout">
+    <nav class="sidebar hide-mobile"></nav>
+    <main class="main-content" data-cjx-entrance>
+
+      <!-- Header: component name, back button -->
+      <header class="screen-header" style="position:sticky;top:0;z-index:10;background:var(--color-background);">
+        <a href="s01-showcase-home.html" class="back-btn" aria-label="Back">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15,18 9,12 15,6"/></svg>
+        </a>
+        <span class="screen-header-center">Button</span>
+        <div style="width:44px;"></div>
+      </header>
+
+      <div class="scroll-content">
+
+        <!-- Live preview area -->
+        <section class="section" data-cjx-entrance>
+          <div class="preview-area" id="previewArea">
+            <button class="btn btn-solid btn-md">Primary Action</button>
+          </div>
+        </section>
+
+        <!-- Variant selector (chips: solid, outline, ghost, link) -->
+        <section class="section" data-cjx-entrance>
+          <p class="section-subtitle">Variant</p>
+          <div class="filter-chips" style="padding-left:0;">
+            <button class="filter-chip active" data-variant-chip data-variant-group="variant">Solid</button>
+            <button class="filter-chip" data-variant-chip data-variant-group="variant">Outline</button>
+            <button class="filter-chip" data-variant-chip data-variant-group="variant">Ghost</button>
+            <button class="filter-chip" data-variant-chip data-variant-group="variant">Link</button>
+          </div>
+        </section>
+
+        <!-- Size selector (chips: sm, md, lg) -->
+        <section class="section" data-cjx-entrance>
+          <p class="section-subtitle">Size</p>
+          <div class="filter-chips" style="padding-left:0;">
+            <button class="filter-chip" data-variant-chip data-variant-group="size">SM (32px)</button>
+            <button class="filter-chip active" data-variant-chip data-variant-group="size">MD (44px)</button>
+            <button class="filter-chip" data-variant-chip data-variant-group="size">LG (52px)</button>
+          </div>
+        </section>
+
+        <!-- Theme toggle (light/dark preview) -->
+        <section class="section" data-cjx-entrance>
+          <p class="section-subtitle">Theme Preview</p>
+          <div style="display:flex;gap:var(--space-sm);">
+            <div class="preview-area" style="flex:1;min-height:80px;">
+              <button class="btn btn-solid btn-sm" style="font-size:13px;">Light</button>
+            </div>
+            <div class="preview-area dark" style="flex:1;min-height:80px;">
+              <button class="btn btn-solid btn-sm" style="font-size:13px;">Dark</button>
+            </div>
+          </div>
+        </section>
+
+        <!-- Props table -->
+        <section class="section" data-cjx-entrance>
+          <p class="section-subtitle">Props</p>
+          <div style="overflow-x:auto;">
+            <table class="props-table">
+              <thead>
+                <tr>
+                  <th>Name</th>
+                  <th>Type</th>
+                  <th>Default</th>
+                  <th>Description</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><code>variant</code></td>
+                  <td><code>string</code></td>
+                  <td><code>solid</code></td>
+                  <td>Visual style</td>
+                </tr>
+                <tr>
+                  <td><code>size</code></td>
+                  <td><code>string</code></td>
+                  <td><code>md</code></td>
+                  <td>Button height</td>
+                </tr>
+                <tr>
+                  <td><code>icon</code></td>
+                  <td><code>ReactNode</code></td>
+                  <td><code>-</code></td>
+                  <td>Optional icon element</td>
+                </tr>
+                <tr>
+                  <td><code>iconPosition</code></td>
+                  <td><code>string</code></td>
+                  <td><code>left</code></td>
+                  <td>Icon placement</td>
+                </tr>
+                <tr>
+                  <td><code>loading</code></td>
+                  <td><code>boolean</code></td>
+                  <td><code>false</code></td>
+                  <td>Show loading spinner</td>
+                </tr>
+                <tr>
+                  <td><code>disabled</code></td>
+                  <td><code>boolean</code></td>
+                  <td><code>false</code></td>
+                  <td>Disable interaction</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <!-- States preview -->
+        <section class="section" data-cjx-entrance>
+          <p class="section-subtitle">States</p>
+          <div style="display:flex;flex-direction:column;gap:var(--space-md);">
+            <div style="display:flex;align-items:center;gap:var(--space-md);">
+              <span style="font:var(--text-caption);color:var(--color-text-soft);min-width:60px;">Default</span>
+              <button class="btn btn-solid btn-sm">Button</button>
+            </div>
+            <div style="display:flex;align-items:center;gap:var(--space-md);">
+              <span style="font:var(--text-caption);color:var(--color-text-soft);min-width:60px;">Disabled</span>
+              <button class="btn btn-solid btn-sm" disabled>Button</button>
+            </div>
+            <div style="display:flex;align-items:center;gap:var(--space-md);">
+              <span style="font:var(--text-caption);color:var(--color-text-soft);min-width:60px;">Loading</span>
+              <button class="btn btn-solid btn-sm btn-loading">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="animation:spin 1s linear infinite;"><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/></svg>
+                Button
+              </button>
+            </div>
+          </div>
+        </section>
+
+        <!-- Platform note -->
+        <section class="section" data-cjx-entrance>
+          <p class="section-subtitle">Platform Behavior</p>
+          <div style="display:flex;gap:var(--space-md);">
+            <div class="card card-outlined" style="flex:1;padding:var(--space-md);text-align:center;">
+              <div style="font:var(--text-caption);font-weight:600;color:var(--color-text-soft);margin-bottom:var(--space-sm);">iOS</div>
+              <div style="font:var(--text-caption);color:var(--color-text-soft);">Rounded corners</div>
+            </div>
+            <div class="card card-outlined" style="flex:1;padding:var(--space-md);text-align:center;">
+              <div style="font:var(--text-caption);font-weight:600;color:var(--color-text-soft);margin-bottom:var(--space-sm);">Android</div>
+              <div style="font:var(--text-caption);color:var(--color-text-soft);">Ripple effect</div>
+            </div>
+          </div>
+        </section>
+
+        <div style="height:var(--space-xl);"></div>
+      </div>
+    </main>
+  </div>
+  <script src="interactions.js"></script>
+</body>
+</html>

@@ -1,0 +1,259 @@
+<!--
+  Screen: S-11 Document Editor
+  CJX Stage: Usage
+  FR Mapping: FR-03, FR-07
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>S-11 Document Edit</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="components.css">
+  <style>
+    .document-editor-header {
+      display: flex;
+      align-items: center;
+      gap: var(--space-sm);
+      padding: var(--space-md) var(--space-lg);
+      border-bottom: 1px solid var(--color-border);
+    }
+    .document-editor-header .back-btn {
+      flex-shrink: 0;
+    }
+    .document-title-input {
+      flex: 1;
+      font: var(--text-h3);
+      border: none;
+      outline: none;
+      background: transparent;
+      padding: var(--space-xs);
+      border-radius: var(--radius-sm);
+    }
+    .document-title-input:focus {
+      background: var(--color-background-soft);
+    }
+    .document-preview-area {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: var(--space-xl) var(--space-lg);
+      min-height: 400px;
+    }
+    .document-preview {
+      position: relative;
+      width: 82%;
+      aspect-ratio: 3/4;
+      background: white;
+      border-radius: var(--radius-sm);
+      box-shadow: var(--shadow-md);
+      padding: var(--space-lg);
+      border: 2px dashed #42A5F5;
+    }
+    .crop-handle {
+      position: absolute;
+      width: 22px;
+      height: 22px;
+      background: #42A5F5;
+      border: 2px solid white;
+      border-radius: 50%;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+      cursor: pointer;
+    }
+    .crop-handle.top-left { top: -11px; left: -11px; }
+    .crop-handle.top-right { top: -11px; right: -11px; }
+    .crop-handle.bottom-left { bottom: -11px; left: -11px; }
+    .crop-handle.bottom-right { bottom: -11px; right: -11px; }
+    .document-content-mockup {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      padding: var(--space-md);
+    }
+    .document-line {
+      height: 4px;
+      background: #E0E0E0;
+      border-radius: 2px;
+    }
+    .document-line.short { width: 60%; }
+    .document-line.medium { width: 85%; }
+    .document-line.long { width: 95%; }
+    .document-image-block {
+      width: 100%;
+      height: 60px;
+      background: linear-gradient(135deg, #E3F2FD, #BBDEFB);
+      border-radius: var(--radius-sm);
+      margin: var(--space-sm) 0;
+    }
+    .toolbar-horizontal {
+      display: flex;
+      gap: var(--space-xs);
+      padding: var(--space-md) var(--space-lg);
+      overflow-x: auto;
+      border-top: 1px solid var(--color-border);
+      background: var(--color-background);
+    }
+    .toolbar-horizontal::-webkit-scrollbar {
+      height: 0;
+    }
+    .tool-btn {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 4px;
+      padding: var(--space-sm) var(--space-md);
+      border: none;
+      background: transparent;
+      border-radius: var(--radius-sm);
+      cursor: pointer;
+      flex-shrink: 0;
+      transition: background 0.2s;
+    }
+    .tool-btn svg {
+      width: 20px;
+      height: 20px;
+      stroke: var(--color-text);
+    }
+    .tool-btn span {
+      font: var(--text-overline);
+      color: var(--color-text-soft);
+      white-space: nowrap;
+    }
+    .tool-btn.active {
+      background: var(--color-primary-bg);
+    }
+    .tool-btn.active svg {
+      stroke: var(--color-primary);
+    }
+    .tool-btn.active span {
+      color: var(--color-primary);
+      font-weight: 500;
+    }
+  </style>
+</head>
+<body class="cjx-usage">
+  <div class="app-layout">
+    <nav class="sidebar hide-mobile"></nav>
+    <main class="main-content" data-cjx-entrance>
+
+      <!-- Header -->
+      <div class="document-editor-header">
+        <button class="back-btn" aria-label="Go back">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="15,18 9,12 15,6"/>
+          </svg>
+        </button>
+        <input type="text" class="document-title-input" value="My Document" aria-label="Document title">
+        <button class="btn btn-solid btn-sm">Export</button>
+      </div>
+
+      <!-- Document preview -->
+      <div class="document-preview-area">
+        <div class="document-preview">
+          <!-- Crop handles -->
+          <div class="crop-handle top-left"></div>
+          <div class="crop-handle top-right"></div>
+          <div class="crop-handle bottom-left"></div>
+          <div class="crop-handle bottom-right"></div>
+
+          <!-- Document content mockup -->
+          <div class="document-content-mockup">
+            <div class="document-line long"></div>
+            <div class="document-line medium"></div>
+            <div class="document-line long"></div>
+            <div class="document-line short"></div>
+            <div class="document-line long"></div>
+            <div class="document-line medium"></div>
+
+            <div class="document-image-block"></div>
+
+            <div class="document-line long"></div>
+            <div class="document-line medium"></div>
+            <div class="document-line long"></div>
+            <div class="document-line short"></div>
+            <div class="document-line medium"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Bottom toolbar -->
+      <div class="toolbar-horizontal">
+        <button class="tool-btn active">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="3" width="18" height="18" rx="2"/>
+            <path d="M3 9h18M9 21V9"/>
+          </svg>
+          <span>Crop</span>
+        </button>
+
+        <button class="tool-btn">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="23,4 23,10 17,10"/>
+            <path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"/>
+          </svg>
+          <span>Rotate</span>
+        </button>
+
+        <button class="tool-btn">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="4" y1="21" x2="4" y2="14"/>
+            <line x1="4" y1="10" x2="4" y2="3"/>
+            <line x1="12" y1="21" x2="12" y2="12"/>
+            <line x1="12" y1="8" x2="12" y2="3"/>
+            <line x1="20" y1="21" x2="20" y2="16"/>
+            <line x1="20" y1="12" x2="20" y2="3"/>
+            <line x1="1" y1="14" x2="7" y2="14"/>
+            <line x1="9" y1="8" x2="15" y2="8"/>
+            <line x1="17" y1="16" x2="23" y2="16"/>
+          </svg>
+          <span>Filter</span>
+        </button>
+
+        <button class="tool-btn">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="5"/>
+            <line x1="12" y1="1" x2="12" y2="3"/>
+            <line x1="12" y1="21" x2="12" y2="23"/>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/>
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+            <line x1="1" y1="12" x2="3" y2="12"/>
+            <line x1="21" y1="12" x2="23" y2="12"/>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/>
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+          </svg>
+          <span>Brightness</span>
+        </button>
+
+        <button class="tool-btn">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10"/>
+            <path d="M12 2a10 10 0 0 0 0 20"/>
+          </svg>
+          <span>Contrast</span>
+        </button>
+
+        <button class="tool-btn">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="4,7 4,4 20,4 20,7"/>
+            <line x1="9" y1="20" x2="15" y2="20"/>
+            <line x1="12" y1="4" x2="12" y2="20"/>
+          </svg>
+          <span>Text</span>
+        </button>
+
+        <button class="tool-btn">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M20 20c-2.66-2.66-5-3-8-3s-5.34 0.34-8 3"/>
+            <path d="M2 11.5C2 11.5 5.5 9 12 9s10 2.5 10 2.5"/>
+            <path d="M7 3.34C7 3.34 9 2 12 2s5 1.34 5 1.34"/>
+          </svg>
+          <span>Erase</span>
+        </button>
+      </div>
+
+    </main>
+  </div>
+  <script src="interactions.js"></script>
+</body>
+</html>

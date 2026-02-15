@@ -1,0 +1,236 @@
+<!--
+  Screen: S-13 Register Form
+  CJX Stage: Onboarding
+  FR Mapping: FR-03, FR-11
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>S-13 Register</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="components.css">
+  <style>
+    .avatar-upload {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: var(--space-sm);
+      margin: var(--space-lg) 0;
+    }
+    .avatar-upload-circle {
+      width: 80px;
+      height: 80px;
+      border: 2px dashed var(--color-border);
+      border-radius: 50%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background: var(--color-background-soft);
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .avatar-upload-circle:hover {
+      border-color: var(--color-primary);
+      background: var(--color-primary-bg);
+    }
+    .avatar-upload-circle svg {
+      width: 28px;
+      height: 28px;
+      stroke: var(--color-text-soft);
+      margin-bottom: 4px;
+    }
+    .avatar-upload-text {
+      font: var(--text-caption);
+      color: var(--color-text-soft);
+    }
+    .input-with-action {
+      position: relative;
+    }
+    .input-with-action .input-field {
+      width: 100%;
+      padding-right: 44px;
+    }
+    .input-action-btn {
+      position: absolute;
+      right: var(--space-xs);
+      top: 50%;
+      transform: translateY(-50%);
+      background: none;
+      border: none;
+      color: var(--color-text-soft);
+      width: var(--touch-target);
+      height: var(--touch-target);
+      padding: 0;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: var(--radius-full);
+      transition: color 0.15s ease;
+    }
+    .input-action-btn:hover {
+      color: var(--color-text);
+    }
+    .input-action-btn svg {
+      width: 20px;
+      height: 20px;
+    }
+    .checkbox-group {
+      display: flex;
+      align-items: flex-start;
+      gap: var(--space-sm);
+      margin: var(--space-md) 0;
+    }
+    .custom-checkbox {
+      width: 20px;
+      height: 20px;
+      border: 2px solid var(--color-border);
+      border-radius: 4px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      flex-shrink: 0;
+      transition: all 0.2s;
+      background: var(--color-background);
+    }
+    .custom-checkbox:hover {
+      border-color: var(--color-primary);
+    }
+    .custom-checkbox.checked {
+      background: var(--color-primary);
+      border-color: var(--color-primary);
+    }
+    .custom-checkbox svg {
+      width: 14px;
+      height: 14px;
+      stroke: white;
+      display: none;
+    }
+    .custom-checkbox.checked svg {
+      display: block;
+    }
+    .checkbox-label {
+      font: var(--text-body2);
+      color: var(--color-text);
+      line-height: 1.5;
+      cursor: pointer;
+    }
+    .checkbox-label a {
+      color: var(--color-primary);
+      text-decoration: none;
+    }
+    .signin-prompt {
+      text-align: center;
+      font: var(--text-body2);
+      color: var(--color-text-soft);
+      margin-top: var(--space-lg);
+    }
+    .signin-prompt a {
+      color: var(--color-primary);
+      text-decoration: none;
+      font-weight: 500;
+    }
+  </style>
+</head>
+<body class="cjx-onboarding">
+  <div class="app-layout">
+    <nav class="sidebar hide-mobile"></nav>
+    <main class="main-content" data-cjx-entrance>
+
+      <!-- Header -->
+      <header class="screen-header">
+        <button class="back-btn" aria-label="Go back" onclick="window.location.href='s12-login.html'">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="15,18 9,12 15,6"/>
+          </svg>
+        </button>
+        <h1 class="screen-header-title">Create Account</h1>
+      </header>
+
+      <div class="scroll-content">
+        <div style="padding:0 var(--space-lg);" data-cjx-entrance>
+
+          <!-- Avatar upload -->
+          <div class="avatar-upload">
+            <div class="avatar-upload-circle">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/>
+                <circle cx="12" cy="13" r="4"/>
+              </svg>
+            </div>
+            <span class="avatar-upload-text">Add Photo</span>
+          </div>
+
+          <!-- Form fields -->
+          <div style="display:flex;flex-direction:column;gap:var(--space-md);margin-top:var(--space-xl);">
+            <div class="input-group">
+              <label class="input-label">Full Name</label>
+              <input type="text" class="input-field" placeholder="Enter your full name">
+            </div>
+
+            <div class="input-group">
+              <label class="input-label">Email</label>
+              <input type="email" class="input-field" placeholder="your@email.com">
+            </div>
+
+            <div class="input-group">
+              <label class="input-label">Password</label>
+              <div class="input-with-action">
+                <input type="password" class="input-field" placeholder="Create a password">
+                <button class="input-action-btn" aria-label="Toggle password visibility">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
+                    <circle cx="12" cy="12" r="3"/>
+                  </svg>
+                </button>
+              </div>
+              <span class="input-helper">At least 8 characters</span>
+            </div>
+
+            <div class="input-group">
+              <label class="input-label">Confirm Password</label>
+              <div class="input-with-action">
+                <input type="password" class="input-field" placeholder="Confirm your password">
+                <button class="input-action-btn" aria-label="Toggle password visibility">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
+                    <circle cx="12" cy="12" r="3"/>
+                  </svg>
+                </button>
+              </div>
+            </div>
+
+            <!-- Terms checkbox -->
+            <div class="checkbox-group">
+              <div class="custom-checkbox checked" role="checkbox" aria-checked="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="20,6 9,17 4,12"/>
+                </svg>
+              </div>
+              <label class="checkbox-label">
+                I agree to the <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a>
+              </label>
+            </div>
+
+            <!-- Create Account button -->
+            <button class="btn btn-solid btn-lg btn-full" style="margin-top:var(--space-md);">Create Account</button>
+
+            <!-- Sign in prompt -->
+            <div class="signin-prompt">
+              Already have an account? <a href="s12-login.html">Sign In</a>
+            </div>
+          </div>
+
+          <div style="height:var(--space-xl);"></div>
+        </div>
+      </div>
+
+    </main>
+  </div>
+  <script src="interactions.js"></script>
+</body>
+</html>

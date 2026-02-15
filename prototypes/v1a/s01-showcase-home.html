@@ -1,0 +1,273 @@
+<!--
+  Screen: S-01 Showcase Home
+  CJX Stage: Retention
+  FR Mapping: FR-06
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>S-01 Showcase Home (v1.a)</title>
+  <link rel="stylesheet" href="../styles.css">
+  <link rel="stylesheet" href="../components.css">
+  <link rel="stylesheet" href="styles-v1a.css">
+</head>
+<body class="cjx-retention">
+  <div class="app-layout">
+    <nav class="sidebar hide-mobile"></nav>
+    <main class="main-content" data-cjx-entrance>
+
+      <!-- Header: "Design System" title, theme toggle -->
+      <header class="screen-header">
+        <h1 class="screen-header-title">Design System</h1>
+        <div class="header-actions">
+          <button class="icon-btn" aria-label="Toggle theme">
+            <!-- sun/moon icon -->
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="5"/>
+              <line x1="12" y1="1" x2="12" y2="3"/>
+              <line x1="12" y1="21" x2="12" y2="23"/>
+              <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/>
+              <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+              <line x1="1" y1="12" x2="3" y2="12"/>
+              <line x1="21" y1="12" x2="23" y2="12"/>
+              <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/>
+              <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+            </svg>
+          </button>
+        </div>
+      </header>
+
+      <div class="scroll-content" data-cjx-entrance>
+
+        <!-- Section: Tokens - color swatches grid, tap to S-03 -->
+        <section class="section" data-cjx-entrance>
+          <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:var(--space-md);">
+            <h2 class="section-title" style="margin-bottom:0;">Tokens</h2>
+            <a href="s03-token-viewer.html" style="font:var(--text-body2);color:var(--color-primary);text-decoration:none;font-weight:500;">View All &rarr;</a>
+          </div>
+          <div class="swatch-grid" onclick="window.location.href='s03-token-viewer.html'" style="cursor:pointer;">
+            <div class="swatch">
+              <div class="swatch-color" style="background:#0D9488;"></div>
+              <span class="swatch-name">Primary</span>
+            </div>
+            <div class="swatch">
+              <div class="swatch-color" style="background:#16A34A;"></div>
+              <span class="swatch-name">Success</span>
+            </div>
+            <div class="swatch">
+              <div class="swatch-color" style="background:#D97706;"></div>
+              <span class="swatch-name">Warning</span>
+            </div>
+            <div class="swatch">
+              <div class="swatch-color" style="background:#DC2626;"></div>
+              <span class="swatch-name">Error</span>
+            </div>
+            <div class="swatch">
+              <div class="swatch-color" style="background:#1C1917;"></div>
+              <span class="swatch-name">Gray10</span>
+            </div>
+            <div class="swatch">
+              <div class="swatch-color" style="background:#7A7368;"></div>
+              <span class="swatch-name">Gray7</span>
+            </div>
+            <div class="swatch">
+              <div class="swatch-color" style="background:#DDD9D4;"></div>
+              <span class="swatch-name">Gray4</span>
+            </div>
+            <div class="swatch">
+              <div class="swatch-color" style="background:#F5F3F0;"></div>
+              <span class="swatch-name">Gray2</span>
+            </div>
+          </div>
+        </section>
+
+        <!-- Section: Components - category list with horizontal scroll previews -->
+        <section class="section" data-cjx-entrance>
+          <h2 class="section-title">Components</h2>
+
+          <!-- Core -->
+          <p class="section-subtitle">Core</p>
+          <div class="horizontal-scroll">
+            <a href="s02-component-detail.html" class="category-card" style="text-decoration:none;">
+              <div class="category-card-icon core">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M9 12h6"/></svg>
+              </div>
+              <div class="category-card-name">Button</div>
+              <div class="category-card-count">4 variants</div>
+            </a>
+            <a href="s02-component-detail.html" class="category-card" style="text-decoration:none;">
+              <div class="category-card-icon core">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="18" rx="3"/></svg>
+              </div>
+              <div class="category-card-name">Card</div>
+              <div class="category-card-count">3 variants</div>
+            </a>
+            <a href="s02-component-detail.html" class="category-card" style="text-decoration:none;">
+              <div class="category-card-icon core">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7h16M4 12h16M4 17h10"/></svg>
+              </div>
+              <div class="category-card-name">Input</div>
+              <div class="category-card-count">3 variants</div>
+            </a>
+            <a href="s02-component-detail.html" class="category-card" style="text-decoration:none;">
+              <div class="category-card-icon core">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="6" width="18" height="12" rx="2"/><path d="M3 10h18"/></svg>
+              </div>
+              <div class="category-card-name">Modal</div>
+              <div class="category-card-count">3 types</div>
+            </a>
+            <a href="s02-component-detail.html" class="category-card" style="text-decoration:none;">
+              <div class="category-card-icon core">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 18h18M3 14h18"/><rect x="3" y="6" width="18" height="4" rx="1"/></svg>
+              </div>
+              <div class="category-card-name">Sheet</div>
+              <div class="category-card-count">3 snaps</div>
+            </a>
+          </div>
+
+          <!-- Content -->
+          <p class="section-subtitle" style="margin-top:var(--space-md);">Content</p>
+          <div class="horizontal-scroll">
+            <a href="s02-component-detail.html" class="category-card" style="text-decoration:none;">
+              <div class="category-card-icon content">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="18" rx="2"/><line x1="2" y1="9" x2="22" y2="9"/><path d="M6 14h6M6 18h4"/></svg>
+              </div>
+              <div class="category-card-name">ArticleCard</div>
+              <div class="category-card-count">2 variants</div>
+            </a>
+            <a href="s02-component-detail.html" class="category-card" style="text-decoration:none;">
+              <div class="category-card-icon content">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="2"/><polygon points="10,8 16,12 10,16"/></svg>
+              </div>
+              <div class="category-card-name">MediaCard</div>
+              <div class="category-card-count">3 variants</div>
+            </a>
+            <a href="s02-component-detail.html" class="category-card" style="text-decoration:none;">
+              <div class="category-card-icon content">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M2 14l5-5 3 3 4-4 8 8"/></svg>
+              </div>
+              <div class="category-card-name">FeaturedCard</div>
+              <div class="category-card-count">Hero layout</div>
+            </a>
+          </div>
+
+          <!-- Navigation -->
+          <p class="section-subtitle" style="margin-top:var(--space-md);">Navigation</p>
+          <div class="horizontal-scroll">
+            <a href="s02-component-detail.html" class="category-card" style="text-decoration:none;">
+              <div class="category-card-icon nav">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="4" rx="1"/><path d="M6 6h0M10 6h8"/></svg>
+              </div>
+              <div class="category-card-name">Header</div>
+              <div class="category-card-count">3 variants</div>
+            </a>
+            <a href="s02-component-detail.html" class="category-card" style="text-decoration:none;">
+              <div class="category-card-icon nav">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="18" width="20" height="4" rx="1"/><circle cx="6" cy="20" r="1"/><circle cx="12" cy="20" r="1"/><circle cx="18" cy="20" r="1"/></svg>
+              </div>
+              <div class="category-card-name">TabBar</div>
+              <div class="category-card-count">Max 5 tabs</div>
+            </a>
+          </div>
+
+          <!-- Form -->
+          <p class="section-subtitle" style="margin-top:var(--space-md);">Form</p>
+          <div class="horizontal-scroll">
+            <a href="s02-component-detail.html" class="category-card" style="text-decoration:none;">
+              <div class="category-card-icon form">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+              </div>
+              <div class="category-card-name">SearchBar</div>
+              <div class="category-card-count">Expandable</div>
+            </a>
+            <a href="s02-component-detail.html" class="category-card" style="text-decoration:none;">
+              <div class="category-card-icon form">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 12h4l3-9 4 18 3-9h4"/></svg>
+              </div>
+              <div class="category-card-name">FilterChips</div>
+              <div class="category-card-count">Multi-select</div>
+            </a>
+          </div>
+        </section>
+
+        <!-- Section: Templates - vertical list of template previews -->
+        <section class="section" data-cjx-entrance>
+          <h2 class="section-title">Templates</h2>
+
+          <a href="s04-onboarding.html" class="template-card" style="text-decoration:none;">
+            <div class="template-card-preview" style="background:linear-gradient(135deg,#F0FDFA,#CCFBF1);">
+              <svg viewBox="0 0 24 24" fill="none" stroke="#0D9488" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+            </div>
+            <div class="template-card-info">
+              <div class="template-card-name">Onboarding</div>
+              <div class="template-card-desc">Swipeable pages, skip/next, CTA</div>
+            </div>
+            <div class="template-card-arrow">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9,18 15,12 9,6"/></svg>
+            </div>
+          </a>
+
+          <a href="s05-feed.html" class="template-card" style="text-decoration:none;">
+            <div class="template-card-preview" style="background:linear-gradient(135deg,#D1FAE5,#A7F3D0);">
+              <svg viewBox="0 0 24 24" fill="none" stroke="#16A34A" stroke-width="2"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
+            </div>
+            <div class="template-card-info">
+              <div class="template-card-name">Feed</div>
+              <div class="template-card-desc">Card list, filter chips, FAB</div>
+            </div>
+            <div class="template-card-arrow">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9,18 15,12 9,6"/></svg>
+            </div>
+          </a>
+
+          <a href="s06-detail.html" class="template-card" style="text-decoration:none;">
+            <div class="template-card-preview" style="background:linear-gradient(135deg,#FEF3C7,#FDE68A);">
+              <svg viewBox="0 0 24 24" fill="none" stroke="#D97706" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14,2 14,8 20,8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+            </div>
+            <div class="template-card-info">
+              <div class="template-card-name">Detail</div>
+              <div class="template-card-desc">Hero image, article body, action bar</div>
+            </div>
+            <div class="template-card-arrow">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9,18 15,12 9,6"/></svg>
+            </div>
+          </a>
+
+          <a href="s07-search.html" class="template-card" style="text-decoration:none;">
+            <div class="template-card-preview" style="background:linear-gradient(135deg,#F5F3FF,#E9D5FF);">
+              <svg viewBox="0 0 24 24" fill="none" stroke="#7C3AED" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+            </div>
+            <div class="template-card-info">
+              <div class="template-card-name">Search</div>
+              <div class="template-card-desc">Recent searches, trending, results</div>
+            </div>
+            <div class="template-card-arrow">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9,18 15,12 9,6"/></svg>
+            </div>
+          </a>
+
+          <a href="s08-profile.html" class="template-card" style="text-decoration:none;">
+            <div class="template-card-preview" style="background:linear-gradient(135deg,#FFF1F2,#FECDD3);">
+              <svg viewBox="0 0 24 24" fill="none" stroke="#E11D48" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+            </div>
+            <div class="template-card-info">
+              <div class="template-card-name">Profile</div>
+              <div class="template-card-desc">Avatar, stats, settings list</div>
+            </div>
+            <div class="template-card-arrow">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9,18 15,12 9,6"/></svg>
+            </div>
+          </a>
+        </section>
+
+        <!-- Bottom spacing -->
+        <div style="height:var(--space-xl);"></div>
+
+      </div>
+    </main>
+  </div>
+  <script src="../interactions.js"></script>
+</body>
+</html>

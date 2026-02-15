@@ -1,0 +1,122 @@
+<!--
+  Screen: S-06 Detail Template
+  CJX Stage: Usage (300ms animations)
+  FR Mapping: FR-07, FR-05
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>S-06 Detail (v1.a)</title>
+  <link rel="stylesheet" href="../styles.css">
+  <link rel="stylesheet" href="../components.css">
+  <link rel="stylesheet" href="styles-v1a.css">
+</head>
+<body class="cjx-usage">
+  <div class="app-layout">
+    <nav class="sidebar hide-mobile"></nav>
+    <main class="main-content" data-cjx-entrance>
+
+      <div class="scroll-content">
+
+        <!-- Hero image (full-width, 240px, parallax on scroll) -->
+        <div class="detail-hero" style="width:100%;height:240px;background:linear-gradient(135deg,#0F766E 0%,#0D9488 40%,#2DD4BF 100%);position:relative;flex-shrink:0;overflow:hidden;" data-cjx-entrance>
+          <!-- Decorative SVG pattern -->
+          <svg viewBox="0 0 390 240" width="100%" height="100%" preserveAspectRatio="xMidYMid slice" style="position:absolute;inset:0;opacity:0.15;">
+            <circle cx="60" cy="60" r="100" fill="white"/>
+            <circle cx="330" cy="180" r="80" fill="white"/>
+            <circle cx="200" cy="30" r="50" fill="white"/>
+          </svg>
+
+          <!-- Back button (overlay, top-left) -->
+          <a href="s05-feed.html" class="overlay-btn" style="top:var(--space-md);left:var(--space-md);" aria-label="Back">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15,18 9,12 15,6"/></svg>
+          </a>
+
+          <!-- Share button (overlay, top-right) -->
+          <button class="overlay-btn" style="top:var(--space-md);right:var(--space-md);" aria-label="Share">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
+          </button>
+        </div>
+
+        <!-- Title + author avatar + name + date -->
+        <section class="section" data-cjx-entrance>
+          <h1 style="font:var(--text-h1);font-family:Georgia,serif;margin-bottom:var(--space-md);line-height:1.25;">Building Design Systems at Scale</h1>
+
+          <div style="display:flex;align-items:center;gap:var(--space-md);margin-bottom:var(--space-lg);">
+            <div class="avatar avatar-sm" style="background:linear-gradient(135deg,#0D9488,#2DD4BF);color:var(--white);">SC</div>
+            <div>
+              <div style="font:var(--text-body2);font-weight:500;color:var(--color-text);">Sarah Chen</div>
+              <div style="font:var(--text-caption);color:var(--color-text-soft);">Feb 12, 2026 &middot; 5 min read</div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Body content -->
+        <section style="padding:0 var(--space-lg);" data-cjx-entrance>
+          <p style="font:var(--text-body1);color:var(--color-text);line-height:1.7;margin-bottom:var(--space-lg);">
+            Design systems have become essential infrastructure for product teams building across multiple platforms. A well-structured token system creates a single source of truth that propagates through every layer of the application.
+          </p>
+
+          <h2 style="font:var(--text-h3);font-family:Georgia,serif;margin-bottom:var(--space-md);">Why Tokens Matter</h2>
+          <p style="font:var(--text-body1);color:var(--color-text);line-height:1.7;margin-bottom:var(--space-md);">
+            Tokens are the atomic values of a design system. Colors, spacing, typography, shadows, and border radii are all defined as tokens that components consume. When a token changes, every component updates automatically.
+          </p>
+
+          <div class="blockquote">
+            Tokens bridge the gap between design intent and implementation reality. They ensure that what designers envision is precisely what engineers build.
+          </div>
+
+          <p style="font:var(--text-body1);color:var(--color-text);line-height:1.7;margin-bottom:var(--space-lg);margin-top:var(--space-md);">
+            With Tamagui, tokens are defined once in a shared configuration package and consumed across all components and themes. The compiler optimizes these at build time, extracting static styles for better runtime performance.
+          </p>
+
+          <!-- Inline image placeholder -->
+          <div style="width:100%;height:180px;background:linear-gradient(135deg,#F0FDFA,#CCFBF1);border-radius:var(--radius-md);margin-bottom:var(--space-md);display:flex;align-items:center;justify-content:center;">
+            <svg viewBox="0 0 24 24" width="48" height="48" fill="none" stroke="#0D9488" stroke-width="1" opacity="0.4"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21,15 16,10 5,21"/></svg>
+          </div>
+
+          <h2 style="font:var(--text-h3);font-family:Georgia,serif;margin-bottom:var(--space-md);">Platform Adaptation</h2>
+          <p style="font:var(--text-body1);color:var(--color-text);line-height:1.7;margin-bottom:var(--space-md);">
+            iOS users expect centered navigation titles and subtle shadows, while Android users are accustomed to left-aligned titles and elevation-based depth. The design system handles these differences through platform-specific token overrides.
+          </p>
+
+          <p style="font:var(--text-body1);color:var(--color-text);line-height:1.7;margin-bottom:var(--space-md);">
+            Typography follows the same adaptive pattern: SF Pro on iOS for that native Apple feel, Roboto on Android for Material consistency. Both are configured through the font token system with matching size scales.
+          </p>
+
+          <h2 style="font:var(--text-h3);font-family:Georgia,serif;margin-bottom:var(--space-md);">Getting Started</h2>
+          <p style="font:var(--text-body1);color:var(--color-text);line-height:1.7;margin-bottom:var(--space-lg);">
+            The showcase app serves as living documentation for the full design system. Browse tokens, preview components, and explore templates to understand the available building blocks before integrating into your project.
+          </p>
+        </section>
+
+        <div style="height:calc(var(--space-2xl) + 20px);"></div>
+      </div>
+
+      <!-- Action bar (fixed bottom): like, comment, bookmark, share -->
+      <div class="action-bar" data-cjx-entrance>
+        <button class="action-bar-btn" data-toggle aria-label="Like">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+          <span>Like</span>
+        </button>
+        <button class="action-bar-btn" aria-label="Comment">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+          <span>Comment</span>
+        </button>
+        <button class="action-bar-btn" data-toggle aria-label="Bookmark">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/></svg>
+          <span>Save</span>
+        </button>
+        <button class="action-bar-btn" aria-label="Share">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
+          <span>Share</span>
+        </button>
+      </div>
+
+    </main>
+  </div>
+  <script src="../interactions.js"></script>
+</body>
+</html>

@@ -1,0 +1,152 @@
+<!--
+  Screen: S-05 Feed Template
+  CJX Stage: Retention (400ms animations)
+  FR Mapping: FR-07, FR-05
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>S-05 Feed</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="components.css">
+</head>
+<body class="cjx-retention">
+  <div class="app-layout">
+    <nav class="sidebar hide-mobile"></nav>
+    <main class="main-content" data-cjx-entrance>
+
+      <!-- Header: app title, search icon -->
+      <header class="screen-header">
+        <h1 class="screen-header-title">Feed</h1>
+        <div class="header-actions">
+          <button class="icon-btn" data-search-toggle aria-label="Search">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          </button>
+        </div>
+      </header>
+
+      <!-- SearchBar (expandable, hidden by default) -->
+      <div class="search-bar">
+        <div class="search-input-wrap">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          <input type="text" placeholder="Search articles...">
+        </div>
+      </div>
+
+      <!-- FilterChips: horizontal scroll -->
+      <div class="filter-chips" data-cjx-entrance>
+        <button class="filter-chip active">All</button>
+        <button class="filter-chip">Tech</button>
+        <button class="filter-chip">Design</button>
+        <button class="filter-chip">News</button>
+        <button class="filter-chip">Science</button>
+        <button class="filter-chip">Culture</button>
+      </div>
+
+      <div class="scroll-content">
+
+        <!-- Pull-to-refresh indicator -->
+        <div class="pull-refresh" data-cjx-entrance>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M23 4v6h-6"/><path d="M1 20v-6h6"/><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/></svg>
+        </div>
+
+        <!-- FeaturedCard: top hero card -->
+        <section class="section" data-cjx-entrance>
+          <a href="s06-detail.html" style="text-decoration:none;">
+            <div class="featured-card">
+              <div class="featured-card-overlay">
+                <div class="featured-card-title">Building Design Systems at Scale</div>
+                <div class="featured-card-subtitle">How Tamagui enables cross-platform consistency</div>
+                <button class="featured-card-cta">Read More</button>
+              </div>
+            </div>
+          </a>
+        </section>
+
+        <!-- ArticleCard list -->
+        <section style="padding:0 var(--space-lg);display:flex;flex-direction:column;gap:var(--space-md);">
+
+          <a href="s06-detail.html" class="article-card" style="text-decoration:none;" data-cjx-entrance>
+            <div class="article-card-image" style="background:linear-gradient(135deg,#E8F5E9,#C8E6C9);">
+              <svg viewBox="0 0 24 24" fill="none" stroke="#388E3C" stroke-width="1.5"><rect x="2" y="3" width="20" height="18" rx="2"/><line x1="2" y1="9" x2="22" y2="9"/><path d="M8 14h8M8 18h5"/></svg>
+            </div>
+            <div class="article-card-body">
+              <div class="article-card-title">Token-First Architecture for Mobile Apps</div>
+              <div class="article-card-subtitle">Learn how design tokens create a single source of truth for colors, spacing, and typography across platforms.</div>
+              <div class="article-card-meta">
+                <span>Sarah Chen</span>
+                <span class="dot"></span>
+                <span>5 min read</span>
+                <span class="dot"></span>
+                <span>Feb 12</span>
+              </div>
+            </div>
+          </a>
+
+          <a href="s06-detail.html" class="article-card" style="text-decoration:none;" data-cjx-entrance>
+            <div class="article-card-image" style="background:linear-gradient(135deg,#FFF3E0,#FFE0B2);">
+              <svg viewBox="0 0 24 24" fill="none" stroke="#E65100" stroke-width="1.5"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12" y2="18.01"/></svg>
+            </div>
+            <div class="article-card-body">
+              <div class="article-card-title">Platform-Adaptive Components with Tamagui</div>
+              <div class="article-card-subtitle">How compound components render differently on iOS and Android while maintaining the same API.</div>
+              <div class="article-card-meta">
+                <span>Marcus Lee</span>
+                <span class="dot"></span>
+                <span>8 min read</span>
+                <span class="dot"></span>
+                <span>Feb 10</span>
+              </div>
+            </div>
+          </a>
+
+          <a href="s06-detail.html" class="article-card" style="text-decoration:none;" data-cjx-entrance>
+            <div class="article-card-image" style="background:linear-gradient(135deg,#F3E5F5,#E1BEE7);">
+              <svg viewBox="0 0 24 24" fill="none" stroke="#7B1FA2" stroke-width="1.5"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+            </div>
+            <div class="article-card-body">
+              <div class="article-card-title">Monorepo Strategies for Design Systems</div>
+              <div class="article-card-subtitle">Turborepo and pnpm workspaces for managing shared packages across multiple consuming apps.</div>
+              <div class="article-card-meta">
+                <span>Ava Patel</span>
+                <span class="dot"></span>
+                <span>6 min read</span>
+                <span class="dot"></span>
+                <span>Feb 8</span>
+              </div>
+            </div>
+          </a>
+
+        </section>
+
+        <div style="height:calc(var(--tab-bar-height) + var(--space-2xl));"></div>
+      </div>
+
+      <!-- FAB: compose/add button -->
+      <button class="fab" aria-label="Compose">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+      </button>
+
+      <!-- Tab Bar -->
+      <nav class="tab-bar">
+        <a href="s05-feed.html" class="tab-bar-item active">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9,22 9,12 15,12 15,22"/></svg>
+          <span>Home</span>
+        </a>
+        <a href="s07-search.html" class="tab-bar-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          <span>Search</span>
+        </a>
+        <a href="s08-profile.html" class="tab-bar-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+          <span>Profile</span>
+        </a>
+      </nav>
+
+    </main>
+  </div>
+  <script src="interactions.js"></script>
+</body>
+</html>

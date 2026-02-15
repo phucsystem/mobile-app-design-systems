@@ -1,0 +1,196 @@
+/* ==========================================================================
+   v1.a - Warm Editorial Theme Override
+   Design direction: Soft UI Evolution with editorial warmth
+   ========================================================================== */
+
+:root {
+  /* v1.a: Warm Editorial Theme */
+
+  /* Base Colors - warmer grays */
+  --gray1: #FAF9F7;
+  --gray2: #F5F3F0;
+  --gray3: #EDEBE8;
+  --gray4: #DDD9D4;
+  --gray5: #B8B2AA;
+  --gray6: #9A938B;
+  --gray7: #7A7368;
+  --gray8: #5C564E;
+  --gray9: #3D3832;
+  --gray10: #1C1917;
+
+  /* Semantic Colors - warm teal primary */
+  --color-primary: #0D9488;
+  --color-primary-light: #2DD4BF;
+  --color-primary-dark: #0F766E;
+  --color-primary-bg: #F0FDFA;
+  --color-success: #16A34A;
+  --color-warning: #D97706;
+  --color-error: #DC2626;
+  --color-info: #0891B2;
+
+  /* Theme Tokens */
+  --color-background: #FAFAF8;
+  --color-background-soft: #F5F3F0;
+  --color-text: #1C1917;
+  --color-text-soft: #7A7368;
+  --color-border: #EDEBE8;
+  --color-shadow: rgba(28,25,23,0.08);
+  --color-card-bg: #FFFFFF;
+  --color-overlay: rgba(28,25,23,0.5);
+
+  /* Typography - serif heading for editorial feel */
+  --font-heading: 'Georgia', 'Times New Roman', ui-serif, serif;
+  --font-body: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Roboto', sans-serif;
+
+  /* Softer shadows for Soft UI feel */
+  --shadow-sm: 0 1px 4px rgba(28,25,23,0.06), 0 1px 2px rgba(28,25,23,0.04);
+  --shadow-md: 0 4px 16px rgba(28,25,23,0.06), 0 2px 4px rgba(28,25,23,0.04);
+  --shadow-lg: 0 8px 32px rgba(28,25,23,0.08), 0 4px 8px rgba(28,25,23,0.04);
+  --shadow-xl: 0 16px 48px rgba(28,25,23,0.1);
+
+  /* Slightly more rounded */
+  --radius-sm: 10px;
+  --radius-md: 14px;
+  --radius-lg: 20px;
+  --radius-xl: 28px;
+}
+
+/* Body background */
+html {
+  background: #E8E5E0;
+}
+
+/* Button gradient */
+.btn-solid {
+  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
+  box-shadow: 0 2px 8px rgba(13,148,136,0.25);
+}
+
+.btn-solid:hover {
+  box-shadow: 0 4px 14px rgba(13,148,136,0.35);
+}
+
+/* Featured card warm gradient */
+.featured-card {
+  background: linear-gradient(135deg, #0F766E 0%, #0D9488 50%, #2DD4BF 100%);
+}
+
+/* FAB */
+.fab {
+  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
+  box-shadow: 0 4px 12px rgba(13,148,136,0.35);
+}
+
+.fab:hover {
+  box-shadow: 0 6px 16px rgba(13,148,136,0.45);
+}
+
+/* Category card icons - warm palette */
+.category-card-icon.core {
+  background: #F0FDFA;
+  color: #0D9488;
+}
+
+.category-card-icon.content {
+  background: #FEF3C7;
+  color: #D97706;
+}
+
+.category-card-icon.nav {
+  background: #FFF1F2;
+  color: #E11D48;
+}
+
+.category-card-icon.form {
+  background: #F5F3FF;
+  color: #7C3AED;
+}
+
+/* Proto nav themed */
+.proto-nav a.active {
+  background: var(--color-primary);
+}
+
+/* Active states */
+.filter-chip.active {
+  background: var(--color-primary);
+  border-color: var(--color-primary);
+}
+
+.tab-bar-item:hover,
+.tab-bar-item.active {
+  color: var(--color-primary);
+}
+
+.page-dot.active {
+  background: var(--color-primary);
+}
+
+.toggle-switch.active {
+  background: var(--color-primary);
+}
+
+.tab-segment.active {
+  color: var(--color-primary);
+}
+
+.badge-solid {
+  background: var(--color-primary);
+}
+
+.badge-outline {
+  border-color: var(--color-primary);
+  color: var(--color-primary);
+}
+
+.badge-subtle {
+  background: var(--color-primary-bg);
+  color: var(--color-primary);
+}
+
+.swatch:hover {
+  transform: scale(1.05);
+}
+
+.avatar {
+  background: var(--color-primary-bg);
+  color: var(--color-primary);
+}
+
+.theme-option.active {
+  border-color: var(--color-primary);
+  color: var(--color-primary);
+  background: var(--color-primary-bg);
+}
+
+/* Article card image gradients - warmer */
+.article-card-image {
+  background: linear-gradient(135deg, var(--color-primary-bg) 0%, #CCFBF1 100%);
+}
+
+/* Blockquote */
+.blockquote {
+  border-left-color: var(--color-primary);
+  background: var(--color-primary-bg);
+}
+
+/* Action bar active */
+.action-bar-btn:hover {
+  color: var(--color-primary);
+}
+
+/* Content list item */
+.content-list-item .thumb {
+  background: var(--color-primary-bg);
+  color: var(--color-primary);
+}
+
+/* Search input focus */
+.search-input-wrap:focus-within {
+  border-color: var(--color-primary-light);
+}
+
+/* Input focus */
+.input-field:focus {
+  border-color: var(--color-primary);
+}
